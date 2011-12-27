@@ -16,7 +16,7 @@ end
 #Deleting tmp pull directory for repo_git_pull correct operations
 directory "#{node[:app_passenger][:deploy_dir].chomp}/tmp/" do
   recursive true
-  action :delete
+ # action :delete
 end
 
 log "Backup old project dirs "
