@@ -11,6 +11,7 @@ rs_utils_marker :begin
 log "INFO: Creating directory for project deployment - #{node[:app_passenger][:deploy_dir]}"
 directory node[:app_passenger][:deploy_dir] do
   recursive true
+  action :delete
 end
 
 #Deleting tmp pull directory for repo_git_pull correct operations
