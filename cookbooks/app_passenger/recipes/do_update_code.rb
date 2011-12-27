@@ -11,14 +11,9 @@ rs_utils_marker :begin
 log "INFO: Creating directory for project deployment - #{node[:app_passenger][:deploy_dir]}"
 directory node[:app_passenger][:deploy_dir] do
   recursive true
-  action :delete
 end
 
-#Deleting tmp pull directory for repo_git_pull correct operations
-directory "#{node[:app_passenger][:deploy_dir].chomp}/tmp/" do
-  recursive true
- # action :delete
-end
+
 
 log "Backup old project dirs "
 #backuping old dirs
@@ -84,7 +79,13 @@ log "INFO: Creating subversion config"
     end
 
   when "git"
-#cloning from git
+    #Deleting tmp pull directory for repo_git_pull correct operations
+    directory "#{node[:app_passenger][:deploy_dir].chomp}/tmp/" do
+      recursive true
+      action :delete
+    end
+
+    #cloning from git
     repo_git_pull "Get Repository" do
       url "#{node[:app_passenger][:repository][:url].chomp}"
       branch node[:app_passenger][:repository][:revision]
