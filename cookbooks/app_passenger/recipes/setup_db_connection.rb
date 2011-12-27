@@ -7,11 +7,7 @@
 
 rs_utils_marker :begin
 
-# Preparing dirs, required for apache+passenger
-log "INFO: Creating directory for project deployment - #{node[:app_passenger][:deploy_dir]}"
-directory node[:app_passenger][:deploy_dir] do
-  recursive true
-end
+
 
 #creating database template
 log "INFO: Generating database.yml"
