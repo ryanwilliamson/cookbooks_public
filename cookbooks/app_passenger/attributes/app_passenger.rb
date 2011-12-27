@@ -22,8 +22,6 @@ set_unless[:app_passenger][:rails_spawn_method]="conservative"
 set_unless[:app_passenger][:apache][:maintenance_page]=""
 set_unless[:app_passenger][:apache][:php_enable]="false"
 set_unless[:app_passenger][:apache][:serve_local_files]="true"
-set_unless[:app_passenger][:apache][:target_bind_address]=""
-set_unless[:app_passenger][:apache][:target_bind_port]=""
 set_unless[:app_passenger][:apache][:port]="8000"
 
 case node[:platform]

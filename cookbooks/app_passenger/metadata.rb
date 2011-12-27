@@ -18,7 +18,8 @@ recipe "app_passenger::install_required_app_gems", "Bundler gems Install. Gemfil
 recipe "app_passenger::install_apache_passenger", "Install and apache passenger module"
 recipe "app_passenger::setup_apache_passenger_vhost", "Configure apache passenger vhost"
 recipe "app_passenger::install_ruby_enterprise_edition", "Install Ruby EE"
-recipe "app_passenger::svn_code_update_and_db_config", "Configures rails deploy environment"
+recipe "app_passenger::setup_db_connection", "Set up the MySQL database db.tomcat connection file."
+recipe "app_passenger::do_update_code", "Update application source files from the remote repository."
 
 recipe "app_passenger::run_custom_rails_commands", "Run specific user defined commands Commands will be executed in the app directory. Command path ../rails/bin/"
 recipe "app_passenger::rhel_apache_fix", "Temporary recipe for fixing apache bug on red hat image"
@@ -49,21 +50,6 @@ attribute "app_passenger/apache/serve_local_files",
   :required => false,
   :default => "true",
   :recipes => ["app_passenger::setup_apache_passenger_vhost"]
-
-attribute "app_passenger/apache/target_bind_address",
-  :display_name => "Apache target bind address",
-  :description => "The IP address that Apache will redirect the requests to. Most likely this will always be set to localhost.",
-  :required => false,
-  :default => "",
-  :recipes => ["app_passenger::setup_apache_passenger_vhost"]
-
-attribute "app_passenger/apache/target_bind_port",
-  :display_name => "Apache target bind port",
-  :description => "The port address that Apache will redirect the requests to.  Default: 85",
-  :required => false,
-  :default => "",
-  :recipes => ["app_passenger::setup_apache_passenger_vhost"]
-
 
 attribute "app_passenger/repository/type",
   :display_name => "Repository Type",
