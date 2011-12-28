@@ -11,7 +11,7 @@ rs_utils_marker :begin
 
 bash "global vars" do
   code <<-EOH
-  $RAILS_APP=`cat /tmp/appname`
+  RAILS_APP=`cat /tmp/appname`
     export
   EOH
 end
