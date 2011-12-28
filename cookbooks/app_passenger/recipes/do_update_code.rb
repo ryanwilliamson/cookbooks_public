@@ -12,7 +12,7 @@ rs_utils_marker :begin
 bash "global vars" do
   code <<-EOH
   RAILS_APP=`cat /tmp/appname`
-    export
+    export RAILS_APP=$RAILS_APP
   EOH
 end
 
