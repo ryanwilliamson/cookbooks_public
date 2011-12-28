@@ -9,18 +9,8 @@ rs_utils_marker :begin
 
 #Setting Deploy dir
 
-bash "global vars" do
-  code <<-EOH
-  RAILS_APP=`cat /tmp/appname`
-    export RAILS_APP=$RAILS_APP
-  export
-  EOH
-end
+#Reading app name from tmp file (for execution in "operational" phase))
 app_name = IO.read('/tmp/appname')
-# app_name = ENV['RAILS_APP']
-log "app_name = #{app_name}"
-
-
 
 node[:app_passenger][:deploy_dir]="/home/rails/#{app_name.to_s.chomp}"
 
