@@ -16,7 +16,7 @@ if(node[:app_passenger][:deploy_dir]=="/home/rails/")
 end
 
 # Preparing dirs, required for apache+passenger
-log "INFO: Creating directory for project deployment - #{node[:app_passenger][:deploy_dir]}"
+log "INFO: Creating directory for project deployment - <#{node[:app_passenger][:deploy_dir]}>"
 directory node[:app_passenger][:deploy_dir] do
   recursive true
 end
