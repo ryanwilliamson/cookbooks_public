@@ -10,6 +10,14 @@ rs_utils_marker :begin
 #Setting Deploy dir
 app_name = ENV['RAILS_APP']
 log "app_name = #{app_name}"
+
+bash "global vars" do
+  code <<-EOH
+    export
+  EOH
+end
+
+
 node[:app_passenger][:deploy_dir]="/home/rails/#{app_name}"
 
 # Preparing dirs, required for apache+passenger
