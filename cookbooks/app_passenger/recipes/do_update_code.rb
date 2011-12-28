@@ -22,7 +22,7 @@ log "app_name = #{app_name}"
 
 
 
-node[:app_passenger][:deploy_dir]="/home/rails/#{app_name}"
+node[:app_passenger][:deploy_dir]="/home/rails/#{app_name.to_s}"
 
 # Preparing dirs, required for apache+passenger
 log "INFO: Creating directory for project deployment - #{node[:app_passenger][:deploy_dir]}"
