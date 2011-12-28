@@ -57,47 +57,47 @@ attribute "app_passenger/repository/type",
   :choice => ["git", "svn"],
   :default => "git",
   :required => "optional",
-  :recipes => [ "app_passenger::svn_code_update_and_db_config" ]
+  :recipes => [ "app_passenger::do_update_code" ]
 
 attribute "app_passenger/repository/revision",
   :display_name => "Repository branch",
   :description => "Enter branch of your repo you want ot fetch  Default: HEAD ",
   :required => false,
   :default => "HEAD",
-  :recipes => ["app_passenger::svn_code_update_and_db_config"]
+  :recipes => ["app_passenger::do_update_code"]
 
 attribute "app_passenger/repository/url",
   :display_name => "Repository URL",
   :description => "The URL of your svn or git repository where your application code will be checked out from.  Ex: http://mysvn.net/app/ or git@github.com/whoami/project",
   :required => false,
-  :recipes => ["app_passenger::svn_code_update_and_db_config"]
+  :recipes => ["app_passenger::do_update_code"]
 
 attribute "app_passenger/repository/svn/username",
   :display_name => "SVN repository username",
   :description => "The SVN username that is used to checkout the application code from SVN repository.",
   :required => false,
   :default => "",
-  :recipes => ["app_passenger::svn_code_update_and_db_config"]
+  :recipes => ["app_passenger::do_update_code"]
 
 attribute "app_passenger/repository/svn/password",
   :display_name => "SVN repository password",
   :description => "The SVN password that is used to checkout the application code from SVN repository.",
   :required => false,
   :default => "",
-  :recipes => ["app_passenger::svn_code_update_and_db_config"]
+  :recipes => ["app_passenger::do_update_code"]
 
 attribute "app_passenger/repository/git/credentials",
   :display_name => "Git Repository Credentials",
   :description => "The private SSH key of the git repository.",
   :required => "optional",
-  :recipes => [ "app_passenger::svn_code_update_and_db_config" ]
+  :recipes => [ "app_passenger::do_update_code" ]
 
 
 attribute "app_passenger/project/environment",
   :display_name => "Rails Environment",
   :description => "Creates a Rails RAILS ENV environment variable. ",
   :default => "",
-  :recipes => ["app_passenger::svn_code_update_and_db_config", "app_passenger::run_custom_rails_commands"]
+  :recipes => ["app_passenger::setup_db_connection", "app_passenger::run_custom_rails_commands"]
 
 attribute "app_passenger/project/gem_list",
      :display_name => "Custom gems list",
@@ -121,10 +121,10 @@ attribute "app_passenger/project/db/schema_name",
   :display_name => "Database schema name",
   :description => "Enter the name of the MySQL database schema to which applications will connect.  The database schema was created when the initial database was first set up. This input will be used to set the application server's database config file so that applications can connect to the correct schema within the database.  This input is also used for MySQL dump backups in order to determine which schema is getting backed up.  Ex: mydbschema",
   :default => "",
-  :recipes => ["app_passenger::svn_code_update_and_db_config"]
+  :recipes => ["app_passenger::setup_db_connection"]
 
 attribute "app_passenger/project/db/adapter",
   :display_name => "Database adapter for database.yml ",
   :description => "Enter database adpter wich will be used to connect to the database Default: mysql",
   :default => "mysql",
-  :recipes => ["app_passenger::svn_code_update_and_db_config"]
+  :recipes => ["app_passenger::setup_db_connection"]

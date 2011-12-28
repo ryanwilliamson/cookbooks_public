@@ -17,4 +17,7 @@ node[:app_passenger][:packages_install].each do |p|
   package p
 end
 
+#Saving project name variables
+ENV['RAILS_APP'] = node[:web_apache][:application_name]
+
 rs_utils_marker :end
