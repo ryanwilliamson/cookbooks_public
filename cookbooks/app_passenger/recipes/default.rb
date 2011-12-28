@@ -20,4 +20,10 @@ end
 #Saving project name variables
 ENV['RAILS_APP'] = node[:web_apache][:application_name]
 
+bash "save global vars" do
+  code <<-EOH
+  echo $RAILS_APP >> /tmp/appname
+  EOH
+end
+
 rs_utils_marker :end

@@ -8,14 +8,17 @@
 rs_utils_marker :begin
 
 #Setting Deploy dir
-app_name = ENV['RAILS_APP']
-log "app_name = #{app_name}"
 
 bash "global vars" do
   code <<-EOH
+  $RAILS_APP=`cat /tmp/appname`
     export
   EOH
 end
+
+app_name = ENV['RAILS_APP']
+log "app_name = #{app_name}"
+
 
 
 node[:app_passenger][:deploy_dir]="/home/rails/#{app_name}"
