@@ -94,7 +94,7 @@
       "default": "git",
       "required": "optional",
       "recipes": [
-        "app_passenger::svn_code_update_and_db_config"
+        "app_passenger::do_update_code"
       ],
       "calculated": false,
       "type": "string"
@@ -105,7 +105,7 @@
       "required": "optional",
       "default": "HEAD",
       "recipes": [
-        "app_passenger::svn_code_update_and_db_config"
+        "app_passenger::do_update_code"
       ],
       "choice": [
 
@@ -118,7 +118,7 @@
       "description": "The URL of your svn or git repository where your application code will be checked out from.  Ex: http://mysvn.net/app/ or git@github.com/whoami/project",
       "required": "optional",
       "recipes": [
-        "app_passenger::svn_code_update_and_db_config"
+        "app_passenger::do_update_code"
       ],
       "choice": [
 
@@ -132,7 +132,7 @@
       "required": "optional",
       "default": "",
       "recipes": [
-        "app_passenger::svn_code_update_and_db_config"
+        "app_passenger::do_update_code"
       ],
       "choice": [
 
@@ -146,7 +146,7 @@
       "required": "optional",
       "default": "",
       "recipes": [
-        "app_passenger::svn_code_update_and_db_config"
+        "app_passenger::do_update_code"
       ],
       "choice": [
 
@@ -159,7 +159,7 @@
       "description": "The private SSH key of the git repository.",
       "required": "optional",
       "recipes": [
-        "app_passenger::svn_code_update_and_db_config"
+        "app_passenger::do_update_code"
       ],
       "choice": [
 
@@ -172,7 +172,7 @@
       "description": "Creates a Rails RAILS ENV environment variable. ",
       "default": "",
       "recipes": [
-        "app_passenger::svn_code_update_and_db_config",
+        "app_passenger::setup_db_connection",
         "app_passenger::run_custom_rails_commands"
       ],
       "choice": [
@@ -228,7 +228,7 @@
       "description": "Enter the name of the MySQL database schema to which applications will connect.  The database schema was created when the initial database was first set up. This input will be used to set the application server's database config file so that applications can connect to the correct schema within the database.  This input is also used for MySQL dump backups in order to determine which schema is getting backed up.  Ex: mydbschema",
       "default": "",
       "recipes": [
-        "app_passenger::svn_code_update_and_db_config"
+        "app_passenger::setup_db_connection"
       ],
       "choice": [
 
@@ -242,7 +242,7 @@
       "description": "Enter database adpter wich will be used to connect to the database Default: mysql",
       "default": "mysql",
       "recipes": [
-        "app_passenger::svn_code_update_and_db_config"
+        "app_passenger::setup_db_connection"
       ],
       "choice": [
 
