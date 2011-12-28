@@ -8,7 +8,9 @@
 rs_utils_marker :begin
 
 #Setting Deploy dir
-node[:app_passenger][:deploy_dir]="/home/rails/#{ENV['RAILS_APP']}"
+app_name = ENV['RAILS_APP']
+log "app_name = #{app_name}"
+node[:app_passenger][:deploy_dir]="/home/rails/#{app_name}"
 
 # Preparing dirs, required for apache+passenger
 log "INFO: Creating directory for project deployment - #{node[:app_passenger][:deploy_dir]}"
