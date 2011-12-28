@@ -11,6 +11,14 @@ service "apache2" do
   action :nothing
 end
 
+#Removing preinstalled apache ssl.conf as it conflicts with ports.conf of web:apache
+file "/etc/httpd/conf.d/ssl.conf" do
+  action :delete
+  backup false
+  only_if do File.exists?("/etc/httpd/conf.d/ssl.conf")  end
+end
+
+
 # Generation of new apache ports.conf, based on user prefs
 template "#{node[:app_passenger][:apache][:install_dir]}/ports.conf" do
   source "ports.conf.erb"
