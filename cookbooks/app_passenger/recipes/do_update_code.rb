@@ -10,9 +10,10 @@ rs_utils_marker :begin
 #Setting Deploy dir
 
 #Reading app name from tmp file (for execution in "operational" phase))
-app_name = IO.read('/tmp/appname')
-
-node[:app_passenger][:deploy_dir]="/home/rails/#{app_name.to_s.chomp}"
+if(node[:app_passenger][:deploy_dir]=="/home/rails/")
+  app_name = IO.read('/tmp/appname')
+  node[:app_passenger][:deploy_dir]="/home/rails/#{app_name.to_s.chomp}"
+end
 
 # Preparing dirs, required for apache+passenger
 log "INFO: Creating directory for project deployment - #{node[:app_passenger][:deploy_dir]}"
