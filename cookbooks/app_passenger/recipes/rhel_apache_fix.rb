@@ -9,15 +9,15 @@ rs_utils_marker :begin
 
 #Recipe created to fix some issues in Centos / RHEL images
 
-#node[:app_passenger][:mysql_packages_install]= ["mysql", "mysql-devel","mysqlclient15", "mysqlclient15-devel"]
+node[:app_passenger][:mysql_packages_install]= ["mysql", "mysql-devel","mysqlclient15", "mysqlclient15-devel"]
 
 case node[:platform]
   when "redhat","redhatenterpriseserver", "centos"
 
     #Installing packages required for mysql gem installation until db recipe on rhel will be fixed
-#    node[:app_passenger][:mysql_packages_install].each do |p|
-#      package p
-#    end
+    node[:app_passenger][:mysql_packages_install].each do |p|
+      package p
+    end
 
     #Fixing  centos root certificate authority issues
     #Backup old certs
