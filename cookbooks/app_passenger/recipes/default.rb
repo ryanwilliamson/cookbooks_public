@@ -17,20 +17,15 @@ node[:app_passenger][:packages_install].each do |p|
   package p
 end
 
-=begin
-#Databag for inputs from web_apache recipe, to run "do_update_code" in operational state
-app_data = Chef::DataBag.new
-app_data.name("app_data")
-app_data.save
 
-app_name = {
-  "application_name" => "#{node[:web_apache][:application_name]}",
-}
-databag_item = Chef::DataBagItem.new
-databag_item.data_bag("app_data")
-databag_item.raw_data = app_name
-databag_item.save
-=end
+#Saving project name variables
+ENV['RAILS_APP'] = node[:web_apache][:application_name]
+
+bash "save global vars" do
+  code <<-EOH
+  echo $RAILS_APP >> /tmp/appname
+  EOH
+end
 
 
 rs_utils_marker :end

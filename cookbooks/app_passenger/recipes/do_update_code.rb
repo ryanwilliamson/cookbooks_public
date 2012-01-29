@@ -6,16 +6,14 @@
 # if applicable, other agreements such as a RightScale Master Subscription Agreement.
 
 rs_utils_marker :begin
-=begin
-#Setting Deploy dir
-#get app name from data_bag when run in operational state
+
+
+#Reading app name from tmp file (for execution in "operational" phase))
 if(node[:app_passenger][:deploy_dir]=="/home/rails/")
-  app_data_bag = data_bag('app_data')
-  app = data_bag_item('app_data_bag', 'application_name')
-  app_name = app['application_name']
+  app_name = IO.read('/tmp/appname')
   node[:app_passenger][:deploy_dir]="/home/rails/#{app_name.to_s.chomp}"
 end
-=end
+
 
 
 # Preparing dirs, required for apache+passenger
