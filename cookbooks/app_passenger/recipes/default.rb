@@ -17,6 +17,7 @@ node[:app_passenger][:packages_install].each do |p|
   package p
 end
 
+=begin
 #Databag for inputs from web_apache recipe, to run "do_update_code" in operational state
 app_data = Chef::DataBag.new
 app_data.name("app_data")
@@ -29,7 +30,7 @@ databag_item = Chef::DataBagItem.new
 databag_item.data_bag("app_data")
 databag_item.raw_data = app_name
 databag_item.save
-
+=end
 
 
 rs_utils_marker :end

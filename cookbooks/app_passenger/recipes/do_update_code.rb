@@ -6,7 +6,7 @@
 # if applicable, other agreements such as a RightScale Master Subscription Agreement.
 
 rs_utils_marker :begin
-
+=begin
 #Setting Deploy dir
 #get app name from data_bag when run in operational state
 if(node[:app_passenger][:deploy_dir]=="/home/rails/")
@@ -15,7 +15,7 @@ if(node[:app_passenger][:deploy_dir]=="/home/rails/")
   app_name = app['application_name']
   node[:app_passenger][:deploy_dir]="/home/rails/#{app_name.to_s.chomp}"
 end
-
+=end
 
 
 # Preparing dirs, required for apache+passenger
