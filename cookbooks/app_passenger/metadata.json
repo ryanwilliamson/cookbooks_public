@@ -26,20 +26,6 @@
   "replacing": {
   },
   "attributes": {
-    "app_passenger/apache/port": {
-      "display_name": "Apache application Port",
-      "description": "Apache port number for your application Ex: 8000",
-      "default": "8000",
-      "recipes": [
-        "app_passenger::setup_apache_passenger_vhost"
-      ],
-      "choice": [
-
-      ],
-      "calculated": false,
-      "type": "string",
-      "required": "optional"
-    },
     "app_passenger/spawn_method": {
       "display_name": "Rails spawn method",
       "description": "The  spawn method that Phusion Passenger will use.  The choices are: smart, smart-lv2, and conservative.  Ex: conservative",
@@ -209,19 +195,6 @@
       "calculated": false,
       "type": "string",
       "required": "optional"
-    },
-    "app_passenger/project/migration_cmd": {
-      "display_name": "Migration command",
-      "description": "Rake command used to initiate migration Ex:rake db:bootstrap If you set value to ignore, migration process would not start.",
-      "required": "optional",
-      "recipes": [
-        "app_passenger::svn_code_update_and_db_config"
-      ],
-      "choice": [
-
-      ],
-      "calculated": false,
-      "type": "string"
     },
     "app_passenger/project/db/schema_name": {
       "display_name": "Database schema name",
