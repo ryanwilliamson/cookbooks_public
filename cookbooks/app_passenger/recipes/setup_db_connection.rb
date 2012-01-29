@@ -7,6 +7,22 @@
 
 rs_utils_marker :begin
 
+if node[:app_passenger][:project][:db][:adapter]=="mysql"
+
+  #packages required for mysql gem
+  node[:app_passenger][:mysql_packages_install]= ["mysql", "mysql-devel","mysqlclient15", "mysqlclient15-devel"]
+
+  case node[:platform]
+
+    when "redhat","redhatenterpriseserver", "centos"
+      node[:app_passenger][:mysql_packages_install].each do |p|
+        package p
+      end
+
+    when "ubuntu","debian"
+      log "Nothing to do!"
+  end
+end
 
 
 #creating database template

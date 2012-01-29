@@ -22,7 +22,7 @@ recipe "app_passenger::setup_db_connection", "Set up the MySQL database db.tomca
 recipe "app_passenger::do_update_code", "Update application source files from the remote repository."
 
 recipe "app_passenger::run_custom_rails_commands", "Run specific user defined commands Commands will be executed in the app directory. Command path ../rails/bin/"
-recipe "app_passenger::rhel_apache_fix", "Temporary recipe for fixing apache bug on red hat image"
+
 
 
 attribute "app_passenger/apache/port",

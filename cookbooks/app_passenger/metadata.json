@@ -263,8 +263,7 @@
     "app_passenger::install_ruby_enterprise_edition": "Install Ruby EE",
     "app_passenger::setup_db_connection": "Set up the MySQL database db.tomcat connection file.",
     "app_passenger::do_update_code": "Update application source files from the remote repository.",
-    "app_passenger::run_custom_rails_commands": "Run specific user defined commands Commands will be executed in the app directory. Command path ../rails/bin/",
-    "app_passenger::rhel_apache_fix": "Temporary recipe for fixing apache bug on red hat image"
+    "app_passenger::run_custom_rails_commands": "Run specific user defined commands Commands will be executed in the app directory. Command path ../rails/bin/"
   },
   "version": "0.0.1"
 }
